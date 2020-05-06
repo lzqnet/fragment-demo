@@ -41,19 +41,19 @@ public class FragmentA extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Bundle bundle = new Bundle();
-                //bundle.putBinder(MainActivity.CALLBACK_KEY, mRecordCardCallback);
-                //FragmentB fragmentB=new FragmentB();
-                //fragmentB.setArguments(bundle);
-                //FragmentManager manager = getActivity().getSupportFragmentManager();
-                //FragmentTransaction transaction = manager.beginTransaction();
-                //transaction.add(R.id.fragmentb_root, fragmentB,"fragmentb");
-                //transaction.addToBackStack(null).commit();
-
+                Bundle bundle = new Bundle();
+                bundle.putBinder(MainActivity.CALLBACK_KEY, mRecordCardCallback);
+                FragmentB fragmentB=new FragmentB();
+                fragmentB.setArguments(bundle);
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
-                transaction.remove(FragmentA.this);
-                transaction.commitAllowingStateLoss();
+                transaction.add(R.id.fragmentb_root, fragmentB,"fragmentb");
+                transaction.addToBackStack(null).commit();
+
+                //FragmentManager manager = getActivity().getSupportFragmentManager();
+                //FragmentTransaction transaction = manager.beginTransaction();
+                //transaction.remove(FragmentA.this);
+                //transaction.commitAllowingStateLoss();
             }
         });
     }
