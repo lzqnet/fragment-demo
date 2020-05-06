@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="fragmenta"
+        tools:text="fragmenta" />
+    <Button
+        android:id="@+id/fragmenta_button"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="fragmenta button"
+        />
+    <FrameLayout
+        android:id="@+id/fragmentb_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+</LinearLayout>
