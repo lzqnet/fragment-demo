@@ -18,6 +18,12 @@
     android:id="@+id/button"
     android:onClick="buttonclick"
     android:text="go to fragment"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToActivity2"
+        android:text="goto ActivityB" />
     <FrameLayout
         android:id="@+id/fragmenta_root"
         android:layout_width="match_parent"

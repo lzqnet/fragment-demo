@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">fragmenttest</string>
+    <string name="process_name">dddddd</string>
+
 </resources>

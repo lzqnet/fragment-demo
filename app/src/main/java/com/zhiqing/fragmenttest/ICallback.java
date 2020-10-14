@@ -15,7 +15,26 @@ public abstract class ICallback extends Binder {
     public static final String descriptor = "android.os.IBinder";
     public static final int CALLBACK = Binder.FIRST_CALL_TRANSACTION + 1;
     private static final String TAG = "lzqtest";
-    public void sendResult(Result result) {
+    public static void sendResult(IBinder binder,Result result) {
+        Log.w(TAG, "ICallbackProxy.sendResult: result " + result.toString());
+        if (binder.isBinderAlive()) {
+            Parcel data = Parcel.obtain();
+            Parcel reply = Parcel.obtain();
+            data.writeInterfaceToken(descriptor);
+            data.writeInt(result.getCode());
+            try {
+                Log.w(TAG, "ICallbackProxy.sendResult: send success ");
+                binder.transact(CALLBACK, data, reply, 0);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+                Log.e(TAG, "sendResult: ", e);
+            }
+            reply.readException();
+            data.recycle();
+            reply.recycle();
+        }
+    }
+    public  void sendResult(Result result) {
         Log.w(TAG, "ICallbackProxy.sendResult: result " + result.toString());
         if (isBinderAlive()) {
             Parcel data = Parcel.obtain();
